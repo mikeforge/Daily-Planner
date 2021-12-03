@@ -1,14 +1,16 @@
+//setting some variables - need to make more to have more dynamic code
 var currentDayEl = $('#currentDay');
 
 
 
+//current date-time - need to incorporate this into function for time
 var date = moment().format('dddd, MMM Do YYYY');
 currentDayEl.html(date);
 
 
 
 
-
+//saving to local storage - could improve this to retain history of entries
 $(document).ready(function () {
     $(".saveBtn").on("click", function () {
         var txt = $(this).siblings(".description").val();
@@ -17,6 +19,10 @@ $(document).ready(function () {
         localStorage.setItem(time, txt);
     })
 
+    //this is a filler - not currently working - need to rework to be more dynamic to the fields
+
+
+    //see below comments
     function timeClock() {
         var currentTime = moment().hour();
 
@@ -43,7 +49,7 @@ $(document).ready(function () {
         })
     }
 
-
+    //see below comment
     $("hr8. description").val(localStorage.getItem("hr8"));
     $("hr9. description").val(localStorage.getItem("hr9"));
     $("hr10. description").val(localStorage.getItem("hr10"));
@@ -57,5 +63,5 @@ $(document).ready(function () {
 
     timeClock();
 
-
+    //compliments of KyleTChiu - I needed a framework to build ideas for improvement
 })
